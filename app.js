@@ -12,7 +12,11 @@ var FileStore = require('session-file-store')(session);
 const Dishes = require('./models/dishes');
 const mongoose = require('mongoose');
 var cors = require('cors');
-const url = 'mongodb://localhost:27017/trello';
+const url = 'mongodb://localhost:27017/trello';  // kif bch nrunni l projet sans docker
+//const url = "mongodb://host.docker.internal:27017/trello";
+//const url = process.env.MONGO_URL || "mongodb://mongo:27017/trello"; // kif bch nrunni l projet avec docker
+
+
 const connect = mongoose.connect(url);
 connect.then((db) => {
     console.log("Connected correctly to server");
